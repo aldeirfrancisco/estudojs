@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="js.js"></script>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr >    
+                <th>Nome</th>
+                <th aluno-nota="1">Nota 1</th>
+                <th aluno-nota="2">Nota 2</th>
+                <th aluno-nota="3">Nota 3</th>
+                <th aluno-nota="4">Nota 4</th>
+                <th aluno-nota="media">Média</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr>    
+                <td>aldeir</td>
+                <td >10</td>
+                <td>9</td>
+                <td>8</td>
+                <td>9.8</td>
+                <td></td>
+                
+            </tr>    
+            <tr>    
+                <td>Silva</td>
+                <td>10</td>
+                <td>9</td>
+                <td>8</td>
+                <td>9.8</td>
+                <td></td>
+                
+            </tr>    
+            <tr>    
+                <td>Francisco</td>
+                <td>10</td>
+                <td>9</td>
+                <td>8</td>
+                <td>9.8</td>
+                <td></td>
+                
+            </tr>    
+            <tr>    
+                <td>Sergio</td>
+                <td>4.5</td>
+                <td>5</td>
+                <td>3</td>
+                <td>2</td>
+                <td></td>
+                
+            </tr>    
+        </tbody>
+      
+    </table>
+    <script>
+       (function (){ 
+
+        function pegaIndice(indice){
+            //peguei o tr do head
+            const trHeard = document.querySelector("thead tr");
+            //peguei o th do heard
+           // console.log(trHeard)
+            const thsHeader = trHeard.querySelectorAll("th");
+            //pegando o th pelo index dinamico
+        const th = trHeard.querySelector(`[aluno-nota="${indice}"]`);
+            // console.log(indece)
+            // console.log(th)
+            const i = [...thsHeader].indexOf(th);
+        
+            return i;
+         }
+         const INDICES_NOTAS = {
+            n1: pegaIndice("1"),
+            n2: pegaIndice("2"),
+            n3: pegaIndice("3"),
+            n4: pegaIndice("4"),
+            media: pegaIndice("media")
+      }
+       // console.log(indece_notas.nota1)
+         // const trHeader = document.querySelector("thead tr")
+        // const thsHeader = trHeader.querySelectorAll("th")
+        
+        const trs = document.querySelectorAll("tbody tr");
+         let c=0;
+         let x=0;
+         
+         let a = 0
+         while(trs[x]){
+           //  console.log(INDICES_NOTAS.n1)
+            // console.log(trs[x]);
+             const tds= trs[x].querySelectorAll("td");
+            
+             a = dividir(
+                parseFloat(tds[INDICES_NOTAS.n1].textContent),
+                parseFloat(tds[INDICES_NOTAS.n2].textContent),
+                parseFloat(tds[INDICES_NOTAS.n3].textContent),
+                parseFloat(tds[INDICES_NOTAS.n4].textContent)
+             )
+             x++;
+           let media =  a.toPrecision(3)
+                
+            tds[INDICES_NOTAS.media].textContent = media
+            if(media < 6){
+            trs[c].style.color="red"
+           
+            trs[c].style.background="#FFDEAD"
+         }else{
+            trs[c].style.background="#00FF7F"
+           
+         }
+         c++
+          }
+          
+        })();
+    </script>
+</body>
+</html>

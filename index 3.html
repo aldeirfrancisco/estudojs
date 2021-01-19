@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="js.js"></script>
+    <style>
+        .underlined{
+            border-bottom: 3px solid currentColor;
+        }
+        .reprovado{
+            background-color: red;
+            color: white;
+        }
+        .aprovado{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <thead class="table-primary">
+            <tr >    
+                <th>Nome</th>
+                <th aluno-nota="1">Nota 1</th>
+                <th aluno-nota="2">Nota 2</th>
+                <th aluno-nota="3">Nota 3</th>
+                <th aluno-nota="4">Nota 4</th>
+                <th aluno-nota="media">Média</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+         
+           
+        </tbody>
+      
+    </table>
+    <script>
+       (function (){ 
+
+        const alunos = [
+                { nome: "Daniel", notas:[ 10, 3,  7.5, 3 ]},
+                { nome: "Maria", notas:[ 10, 9,  3, 9.5  ]},
+                { nome: "João", notas:[ 10, 4.5,  1, 3.5 ]},
+                { nome: "Joana", notas:[ 1, 3,  9, 1.5   ]},
+                { nome: "José", notas:[ 10, 4.5,  7, 3   ] },
+                { nome: "Arnaldo", notas:[ 10, 4.5,  7, 3] },
+                { nome: "Lucas", notas:[ 4.5, 9,  8, 3   ] },
+                { nome: "Luana", notas:[ 3, 7,  9, 3     ] },
+                { nome: "Beatriz", notas:[ 10, 4,  7, 9  ] },
+                { nome: "Sergio", notas:[ 4.5, 9.5,  10,2] }
+];
+           
+          alunos.forEach(aluno =>{
+             let a = dividir(...aluno.notas);
+            return aluno.media = a.toPrecision(3);
+          });  
+          const html = alunos.map(aluno => `
+           <tr class=${aluno.media < 5 ? "reprovado":"aprovado"}>
+                <td>${aluno.nome}</td>
+                ${aluno.notas.map(nota => `<td>${nota}</td>`).join("")}
+                <td>${aluno.media}</td>
+                
+            </tr> `).join("");
+        document.querySelector("tbody").innerHTML = html;
+      
+       
+           
+         
+        })();
+    </script>
+</body>
+</html>
