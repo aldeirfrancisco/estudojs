@@ -15,9 +15,11 @@
        
     </div>
     <script>
-    // querySelectorAll devove uma lista de elementos  presente o documento
-    // querySelector retorna o primeiro elemento dentro do documento
-    //nodeList é estatico e o HtmlCollection  e dinamico "vivo"
+        // querySelectorAll devove uma nodeList contendo nós do tipo elemento
+        // querySelector retorna o primeiro elemento dentro do documento
+        //nodeList é estatico e o HtmlCollection  e dinamico "vivo"
+        //HtmlCollection devolve uma coleção de HTML e não uma coleção de objeto
+    
 
         const nodeList = document.querySelectorAll("#lista li")
         const htmlCollecion = document.getElementById("lista").getElementsByTagName("li")
