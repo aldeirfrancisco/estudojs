@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div class="container">
+        <ul id="lista">
+            <li>Item-1</li>
+            <li>Item-2</li>
+            <li>Item-3</li>
+            <li>Item-4</li>
+            <li>Item-5</li>
+       </ul>
+       
+    </div>
+    <script>
+    // querySelectorAll devove uma lista de elementos  presente o documento
+    // querySelector retorna o primeiro elemento dentro do documento
+    //nodeList é estatico e o HtmlCollection  e dinamico "vivo"
+
+        const nodeList = document.querySelectorAll("#lista li")
+        const htmlCollecion = document.getElementById("lista").getElementsByTagName("li")
+        console.log(nodeList)
+        console.log(htmlCollecion)
+         document.querySelector("#lista").innerHTML +="<li>Item-6</li>"
+         console.log(nodeList)
+        console.log(htmlCollecion)
+        document.getElementById("lista").innerHTML +="<li>Item-6</li>"
+        console.log(nodeList)
+        console.log(htmlCollecion)
+    </script>
+</body>
+</html>
