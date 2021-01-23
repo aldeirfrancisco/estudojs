@@ -10,11 +10,18 @@
     <p> Nós do tipo atributo => class href  id ... </p>
     <p> Nós do tipo texto => o texto dentro de uma tag ... </p>
     <script>
-        //   NAVEGA ENTRE OS NÓS
-        // node.  parentNode
-        //       parentElement
-        //       nextSibling
-        //       previousSibling
+      //criando elelmento
+      const title = document.createElement("h1")
+      const atributo = document.createAttribute("id")
+        atributo.value="titulo"
+          const text = document.createTextNode("vamo nos")
+          title.appendChild(text)
+          title.setAttribute("style","color:yellow;")
+        title.setAttributeNode(atributo)
+        document.querySelector("p").appendChild(title)
+      console.log(title)
+      //console.log(atributo)
+
     </script>
 </body>
 </html>

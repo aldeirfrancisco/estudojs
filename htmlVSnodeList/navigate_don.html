@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <h1>teste Dom</h1>
+    <div class="container">
+        <p>teste-1</p>
+        <p>aprendendo <a href="*">link</a></p>
+        <p>teste-2</p>
+
+        <h2>lista</h2>
+        <ul id="lista">
+            <li>Item-1</li>
+            <li>Item-2
+                <ul>
+                    <li>Item 2.a</li>
+                    <li>Item 2.b</li>
+                    <li>Item 2.c</li>
+                </ul>
+            </li>
+            <li>Item <a href="*">link-2</a></li>
+       </ul>
+       
+    </div>
+    <script>
+        /*document.body.parentElement vc document.body.parentNode aponta para o html
+          html não tem um elemento pai, mais tem um nó pai do tipo document  náo é um nó do tipo elemento
+        */
+        console.log(document.body)
+        console.log(document.body.parentElement)
+        console.log("----------------------")
+        console.log(document.body.parentNode)
+        const html = document.body.parentElement
+        console.log(html.parentElement)
+        console.log("----------------------")
+        console.log(html.parentNode)
+        const h2 = document.querySelector("h2")
+            h2.style.background="red"
+        console.log(h2.previousSibling)
+        const p = h2.nextElementSibling
+        console.log(p.style.background="yellow")
+
+       
+    </script>
+</body>
+</html>
