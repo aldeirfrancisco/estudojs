@@ -8,9 +8,10 @@
     // })
      formCadastro.addEventListener('submit', function (e) {
         if(!textTituluo.value){
-            showErroMessage("preencha todos os campos")
+            showErroMessage("preencha todos os campos", function(){
+                textTituluo.focus()
+            })
             e.preventDefault()// para o emvio do formulario
-            textTituluo.focus()
         }
     })
    
@@ -41,9 +42,12 @@
      })
     const feedbackMessage = document.getElementById('feedbackMessage')
      const feedBackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
-      function  showErroMessage(msn){
+     
+     function  showErroMessage(msn,cb){
          feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
+      if(typeof cb ==="function"){
+          cb()
     }
     feedBackMessageCloseBtn.addEventListener("click",function (){
         feedbackMessage.classList.remove("show")
