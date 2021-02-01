@@ -46,6 +46,7 @@
      function  showErroMessage(msn,cb){
          feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
+        feedBackMessageCloseBtn.focus()
 
         function hideErrorMessage(){
             feedbackMessage.classList.remove("show")
@@ -54,7 +55,13 @@
                 cb()
             }
         }
+        function pressedKeyboardOnBtn(e){
+           if(e.keyCode ===27){
+            hideErrorMessage()
+           }
+        }
         feedBackMessageCloseBtn.addEventListener("click",hideErrorMessage)
+        feedBackMessageCloseBtn.addEventListener("keyup",pressedKeyboardOnBtn)
         
     }
 })()      
