@@ -46,10 +46,15 @@
      function  showErroMessage(msn,cb){
          feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
-      if(typeof cb ==="function"){
-          cb()
+
+        function hideErrorMessage(){
+            feedbackMessage.classList.remove("show")
+            feedBackMessageCloseBtn.removeEventListener("click", hideErrorMessage)
+            if(typeof cb ==="function"){
+                cb()
+            }
+        }
+        feedBackMessageCloseBtn.addEventListener("click",hideErrorMessage)
+        
     }
-    feedBackMessageCloseBtn.addEventListener("click",function (){
-        feedbackMessage.classList.remove("show")
-    })
 })()      
