@@ -8,7 +8,7 @@
     // })
      formCadastro.addEventListener('submit', function (e) {
         if(!textTituluo.value){
-           // showErroMessage("preencha todos os campos")
+            showErroMessage("preencha todos os campos")
             e.preventDefault()// para o emvio do formulario
             textTituluo.focus()
         }
@@ -39,10 +39,10 @@
      chkAceito.addEventListener("change",function(){
          btn.disabled = !this.checked
      })
-    // const feedbackMessage = document.getElementById('feedbackMessage')
-    // const feedBackMessageCloseBtn = feedbackMessage
-    //  function  showErroMessage(msn){
-    //     feedbackMessage.classList.add("show")
-    //     feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
-    // }
+    const feedbackMessage = document.getElementById('feedbackMessage')
+    
+      function  showErroMessage(msn){
+         feedbackMessage.classList.add("show")
+        feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
+    }
 })()      
