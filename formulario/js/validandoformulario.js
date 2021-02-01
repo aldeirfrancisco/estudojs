@@ -40,9 +40,12 @@
          btn.disabled = !this.checked
      })
     const feedbackMessage = document.getElementById('feedbackMessage')
-    
+     const feedBackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
       function  showErroMessage(msn){
          feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msn;
     }
+    feedBackMessageCloseBtn.addEventListener("click",function (){
+        feedbackMessage.classList.remove("show")
+    })
 })()      
