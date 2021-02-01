@@ -13,4 +13,19 @@ window.onload =function () {
             textTituluo.focus()
         }
     })
+    const textDescricao = document.getElementById("txtDescricao")
+    const contadorContainer = document.getElementById("contador")
+    const resta = contadorContainer.getElementsByTagName("span")[0]
+    const maxima = textDescricao.
+    // contadorContainer.removeAttribute("style")
+    contadorContainer.style.display ="block"
+    
+    function  checkLength(){
+        let numeroLetraDigitada = this.value.length
+          let caracteres = parseInt(maxima)- parseInt(numeroLetraDigitada)
+          resta.textContent = caracteres
+       
+    })
+
+    textDescricao.addEventListener("input",checkLength)
 }
